@@ -39,20 +39,19 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="Email :"
+        android:text="Employee Code :"
         android:textColor="#fff"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="10dp"
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/et_email_login"
+        android:id="@+id/stafflogin_empcd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/edittext_border_new"
-        android:hint="Email"
         android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColor="#fff"
@@ -73,13 +72,12 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/et_password_login"
+        android:id="@+id/stafflogin_pswd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/edittext_border_new"
-        android:hint="Password"
         android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="#fff"

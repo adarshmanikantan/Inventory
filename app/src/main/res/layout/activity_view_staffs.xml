@@ -16,6 +16,7 @@
     android:scaleType="centerCrop"
     android:src="@drawable/ic_add_black_24dp"
     android:textColor="#fff"
+    android:onClick="addStaffClick"
     android:elevation="30sp"
     android:layout_margin="30dp"
     android:layout_alignParentRight="true"

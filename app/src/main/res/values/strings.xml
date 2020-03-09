@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Smart Inventory</string>
+    <string-array name="taxes">
+        <item>Exempted</item>
+        <item>GST@0%</item>
+<!--        <item>IGST@0%</item>-->
+        <item>GST@0.25%</item>
+<!--        <item>IGST@0.25%</item>-->
+        <item>GST@3%</item>
+<!--        <item>IGST@3%</item>-->
+        <item>GST@5%</item>
+<!--        <item>IGST@5%</item>-->
+        <item>GST@12%</item>
+<!--        <item>IGST@12%</item>-->
+        <item>GST@18%</item>
+<!--        <item>IGST@18%</item>-->
+        <item>GST@28%</item>
+<!--        <item>IGST@28%</item>-->
+    </string-array>
 </resources>
