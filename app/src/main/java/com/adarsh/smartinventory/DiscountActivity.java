@@ -3,6 +3,7 @@ package com.adarsh.smartinventory;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -184,7 +185,6 @@ public class DiscountActivity extends AppCompatActivity {
         invoiceRequestModel.setTax(taxes.getSelectedItem().toString());
         invoiceRequestModel.setTotal_amount(String.valueOf(totalamount_value));
 
-        Toast.makeText(this,staffid+"/"+pro_name, Toast.LENGTH_SHORT).show();
 
 
         Gson gson = new Gson();
@@ -202,11 +202,15 @@ public class DiscountActivity extends AppCompatActivity {
                 InvoiceResponseModel invoiceResponseModel=response.body();
                 if(invoiceResponseModel.getStatus().equalsIgnoreCase("success"))
                 {
-                    Toast.makeText(DiscountActivity.this,invoiceResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(getApplicationContext(),InvoiceGeneration.class);
+                    startActivity(i);
+                   // Toast.makeText(DiscountActivity.this,invoiceResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    Toast.makeText(DiscountActivity.this,invoiceResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(getApplicationContext(),InvoiceGeneration.class);
+                    startActivity(i);
+                  //  Toast.makeText(DiscountActivity.this,invoiceResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
                 }
             }
 

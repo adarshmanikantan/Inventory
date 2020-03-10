@@ -2,6 +2,7 @@ package com.adarsh.smartinventory;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ public class FirstCalculationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_calculation);
         initViews();
+        SharedPreferences sp=getApplicationContext().getSharedPreferences("customer", Context.MODE_PRIVATE);
+        customer_name.setText(sp.getString("customer_name",null));
 
        //calculations();
     }
