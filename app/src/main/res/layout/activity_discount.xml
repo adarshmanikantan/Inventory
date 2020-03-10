@@ -87,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
+        android:onClick="saveClick"
         android:background="#C4000000"
         android:textColor="#fff"
         android:layout_gravity="center"/>

@@ -2,6 +2,7 @@ package com.adarsh.smartinventory.Retro;
 
 import com.adarsh.smartinventory.Model.AddCustomerResponseModel;
 import com.adarsh.smartinventory.Model.AddEmployeeResponse;
+import com.adarsh.smartinventory.Model.InvoiceResponseModel;
 import com.adarsh.smartinventory.Model.ShopLoginResponse;
 import com.adarsh.smartinventory.Model.ShopRegResponse;
 import com.adarsh.smartinventory.Model.ShopRegistrationRequest;
@@ -32,4 +33,7 @@ public interface Api {
 
     @GET("employee/CustomerDetails/?emp_id=1")
     Call<ViewCustomerModel>VIEW_CUSTOMER_MODEL_CALL(@Query("emp_id")int emp_id);
+
+    @POST("employee/invoice/")
+    Call<InvoiceResponseModel>INVOICE_RESPONSE_MODEL_CALL(@Body RequestBody requestBody);
 }

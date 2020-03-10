@@ -2,6 +2,7 @@ package com.adarsh.smartinventory;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,15 +12,31 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.adarsh.smartinventory.Model.InvoiceRequestModel;
+import com.adarsh.smartinventory.Model.InvoiceResponseModel;
+import com.adarsh.smartinventory.Model.ShopRegistrationRequest;
+import com.adarsh.smartinventory.Retro.Api;
+import com.adarsh.smartinventory.Retro.Api_client;
+import com.google.gson.Gson;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DiscountActivity extends AppCompatActivity {
 
     EditText discountpercent;
-
+    String Json;
+    RequestBody requestBody=null;
     TextView total_amount,discountrupee,taxrupee;
     Spinner taxes;
+    String customer_name,cusid,pro_name;
     int quantitynum;
-
+    int staffid;
     float  rate_value,subtotal_value,totalamount_value,discountpercent_value,discountrupee_value;
     double taxrupee_value;
     @Override
@@ -27,6 +44,12 @@ public class DiscountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discount);
         initViews();
+        SharedPreferences sp=getApplicationContext().getSharedPreferences("customer", Context.MODE_PRIVATE);
+        customer_name=sp.getString("customer_name",null);
+        cusid=sp.getString("customer_code",null);
+        pro_name=sp.getString("pro_name",null);
+        SharedPreferences sPreferences=getApplicationContext().getSharedPreferences("staffpref",MODE_PRIVATE);
+        staffid=sPreferences.getInt("staffid",0);
         SharedPreferences sharedPreferences=getApplicationContext().getSharedPreferences("pref",MODE_PRIVATE);
       quantitynum= sharedPreferences.getInt("quantity_value",0);
         rate_value=sharedPreferences.getFloat("rate_value", (float) 0.00);
@@ -142,6 +165,52 @@ public class DiscountActivity extends AppCompatActivity {
        total_amount=findViewById(R.id.totalamount);
 
 
+    }
+
+    public void saveClick(View view) {
+        Api api = Api_client.SmartInventory().create(Api.class);
+        final InvoiceRequestModel invoiceRequestModel = new InvoiceRequestModel();
+        invoiceRequestModel.setEmployee_id(staffid);
+        invoiceRequestModel.setName(customer_name);
+        invoiceRequestModel.setCustomer_code(cusid);
+        invoiceRequestModel.setProduct_name(pro_name);
+        invoiceRequestModel.setQuantity(quantitynum);
+        invoiceRequestModel.setAmount(String.valueOf(rate_value));
+        invoiceRequestModel.setSub_total(String.valueOf(subtotal_value));
+        invoiceRequestModel.setDiscount_percentage(String.valueOf(discountpercent_value));
+        invoiceRequestModel.setDiscount_rupees(String.valueOf(discountrupee));
+        invoiceRequestModel.setTax(taxes.getSelectedItem().toString());
+        invoiceRequestModel.setTotal_amount(String.valueOf(totalamount_value));
+
+
+        Gson gson = new Gson();
+        Json = gson.toJson(invoiceRequestModel).trim();
+        try {
+            requestBody = RequestBody.create(MediaType.parse("application/json"), Json.getBytes("UTF-8"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(DiscountActivity.this, "" + e, Toast.LENGTH_SHORT).show();
+        }
+
+        api.INVOICE_RESPONSE_MODEL_CALL(requestBody).enqueue(new Callback<InvoiceResponseModel>() {
+            @Override
+            public void onResponse(Call<InvoiceResponseModel> call, Response<InvoiceResponseModel> response) {
+                InvoiceResponseModel invoiceResponseModel=response.body();
+                if(invoiceResponseModel.getStatus().equalsIgnoreCase("success"))
+                {
+                    Toast.makeText(DiscountActivity.this,invoiceResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(DiscountActivity.this,invoiceResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<InvoiceResponseModel> call, Throwable t) {
+                Toast.makeText(DiscountActivity.this,t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
 
