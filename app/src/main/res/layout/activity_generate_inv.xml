@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".GenerateInv">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="proname"
+    android:textSize="25dp"
+    android:layout_margin="10dp"
+    android:textColor="#000"
+    android:id="@+id/productname"
+    />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="quantity"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:textColor="#000"
+            android:id="@+id/quantity"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="price"
+            android:textSize="25dp"
+            android:layout_margin="10dp"
+            android:textColor="#000"
+            android:id="@+id/price"
+            />
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="subtotal"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:textColor="#000"
+        android:id="@+id/subtotal"
+        /> <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="discountpercnt"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:textColor="#000"
+        android:id="@+id/discountpercnt"
+        /> <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="discountrate"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:textColor="#000"
+        android:id="@+id/discountrate"
+        /> <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gst"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:textColor="#000"
+        android:id="@+id/gst"
+        /> <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="totalamount"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:textColor="#000"
+        android:id="@+id/totalamount"
+        />
+
+
+
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="Create PDF"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:id="@+id/createpdf"
+        />
+
+</LinearLayout>

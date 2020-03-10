@@ -21,6 +21,7 @@ import com.adarsh.smartinventory.Model.ShopRegistrationRequest;
 import com.adarsh.smartinventory.Retro.Api;
 import com.adarsh.smartinventory.Retro.Api_client;
 import com.google.gson.Gson;
+import com.harishpadmanabh.apppreferences.AppPreferences;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -40,19 +41,22 @@ public class DiscountActivity extends AppCompatActivity {
     int staffid;
     float  rate_value,subtotal_value,totalamount_value,discountpercent_value,discountrupee_value;
     double taxrupee_value;
-    String chumma;
+    private AppPreferences appPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discount);
         initViews();
+        appPreferences = AppPreferences.getInstance(getApplicationContext(), getResources().getString(R.string.app_name));
+
         SharedPreferences sp=getApplicationContext().getSharedPreferences("customer", Context.MODE_PRIVATE);
         customer_name=sp.getString("customer_name",null);
         cusid=sp.getString("customer_code",null);
         SharedPreferences sPreferences=getApplicationContext().getSharedPreferences("staffpref",MODE_PRIVATE);
         staffid=sPreferences.getInt("staffid",0);
         SharedPreferences sharedPreferences=getApplicationContext().getSharedPreferences("pref",MODE_PRIVATE);
-      quantitynum= sharedPreferences.getInt("quantity_value",0);
+        quantitynum= sharedPreferences.getInt("quantity_value",0);
         rate_value=sharedPreferences.getFloat("rate_value", (float) 0.00);
         subtotal_value=sharedPreferences.getFloat("subtotal_value", (float) 0.00);
         pro_name=sharedPreferences.getString("pro_name",null);
@@ -174,6 +178,7 @@ public class DiscountActivity extends AppCompatActivity {
         Api api = Api_client.SmartInventory().create(Api.class);
         final InvoiceRequestModel invoiceRequestModel = new InvoiceRequestModel();
         invoiceRequestModel.setEmployee_id(staffid);
+
         invoiceRequestModel.setName(customer_name);
         invoiceRequestModel.setCustomer_code(cusid);
         invoiceRequestModel.setProduct_name(pro_name);
@@ -184,6 +189,23 @@ public class DiscountActivity extends AppCompatActivity {
         invoiceRequestModel.setDiscount_rupees(String.valueOf(discountrupee));
         invoiceRequestModel.setTax(taxes.getSelectedItem().toString());
         invoiceRequestModel.setTotal_amount(String.valueOf(totalamount_value));
+
+
+        appPreferences.saveData("customer_name",customer_name);
+        appPreferences.saveData("cusid",cusid);
+        appPreferences.saveData("pro_name",pro_name);
+        appPreferences.saveData("quantitynum", String.valueOf(quantitynum));
+        appPreferences.saveData("rate_value",String.valueOf(rate_value));
+        appPreferences.saveData("subtotal_value",String.valueOf(subtotal_value));
+        appPreferences.saveData("discountpercent_value",String.valueOf(discountpercent_value));
+        appPreferences.saveData("discountrupee",String.valueOf(discountrupee_value));
+        appPreferences.saveData("taxes",taxes.getSelectedItem().toString());
+        appPreferences.saveData("totalamount_value",String.valueOf(totalamount_value));
+
+
+
+
+
 
 
 

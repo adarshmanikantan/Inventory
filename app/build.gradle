@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.adarsh.smartinventory"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -35,5 +35,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     implementation 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
 
+    implementation 'com.github.harishpadmanabh-HP:AppPreferences-Library:1.5'
 
 }
