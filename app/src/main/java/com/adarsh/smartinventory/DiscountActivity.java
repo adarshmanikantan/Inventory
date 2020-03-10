@@ -47,13 +47,14 @@ public class DiscountActivity extends AppCompatActivity {
         SharedPreferences sp=getApplicationContext().getSharedPreferences("customer", Context.MODE_PRIVATE);
         customer_name=sp.getString("customer_name",null);
         cusid=sp.getString("customer_code",null);
-        pro_name=sp.getString("pro_name",null);
         SharedPreferences sPreferences=getApplicationContext().getSharedPreferences("staffpref",MODE_PRIVATE);
         staffid=sPreferences.getInt("staffid",0);
         SharedPreferences sharedPreferences=getApplicationContext().getSharedPreferences("pref",MODE_PRIVATE);
       quantitynum= sharedPreferences.getInt("quantity_value",0);
         rate_value=sharedPreferences.getFloat("rate_value", (float) 0.00);
         subtotal_value=sharedPreferences.getFloat("subtotal_value", (float) 0.00);
+        pro_name=sharedPreferences.getString("pro_name",null);
+
 
         discountpercent.addTextChangedListener(new TextWatcher() {
             @Override
@@ -181,6 +182,8 @@ public class DiscountActivity extends AppCompatActivity {
         invoiceRequestModel.setDiscount_rupees(String.valueOf(discountrupee));
         invoiceRequestModel.setTax(taxes.getSelectedItem().toString());
         invoiceRequestModel.setTotal_amount(String.valueOf(totalamount_value));
+
+        Toast.makeText(this,staffid+"/"+pro_name, Toast.LENGTH_SHORT).show();
 
 
         Gson gson = new Gson();

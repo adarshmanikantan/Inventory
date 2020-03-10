@@ -15,7 +15,6 @@ import android.widget.Toast;
 public class FirstCalculationActivity extends AppCompatActivity {
 
     EditText customer_name, product_name, quantity, rate;
-
     TextView subtotal;
     int quantitynum;
     float rate_value, subtotal_value;
