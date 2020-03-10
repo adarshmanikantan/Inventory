@@ -39,6 +39,7 @@ public class DiscountActivity extends AppCompatActivity {
     int staffid;
     float  rate_value,subtotal_value,totalamount_value,discountpercent_value,discountrupee_value;
     double taxrupee_value;
+    String chumma;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
