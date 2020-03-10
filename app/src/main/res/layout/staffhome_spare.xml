@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff"
@@ -19,34 +19,11 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="25dp"
             android:fontFamily="@font/sansation"
-            android:text="Let Us Know "
+            android:text="Manage"
             android:textColor="#000"
-            android:textSize="30sp" />
+            android:textSize="30dp" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/sansation"
-                android:text="who "
-                android:textColor="#000"
-                android:textSize="35sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/sansation"
-                android:text="You are."
-                android:textColor="@color/colorPrimary"
-                android:textSize="40sp" />
-
-        </LinearLayout>
 
 
         <LinearLayout
@@ -58,8 +35,8 @@
 
             <RelativeLayout
                 android:id="@+id/relative"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="323dp"
+                android:layout_height="274dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
                 android:background="#fff"
@@ -67,8 +44,8 @@
 
                 <ImageView
                     android:id="@+id/imgview"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="218dp"
+                    android:layout_height="185dp"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
@@ -80,41 +57,13 @@
                     android:layout_below="@id/imgview"
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/sansation"
-                    android:text="Customer"
+                    android:text="Your Customers"
                     android:textColor="#000"
                     android:textSize="25dp" />
 
             </RelativeLayout>
 
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:background="#fff"
-                android:onClick="salesExecutiveClick">
-
-                <ImageView
-                    android:id="@+id/imgview2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/salesexecutive" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/imgview2"
-                    android:layout_centerHorizontal="true"
-                    android:fontFamily="@font/sansation"
-                    android:text="Sales Executive"
-                    android:textColor="#000"
-                    android:textSize="25dp" />
-
-            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -126,19 +75,19 @@
 
                 <ImageView
                     android:id="@+id/imgview3"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/shop" />
+                    android:src="@drawable/product" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/imgview3"
                     android:layout_centerHorizontal="true"
-                    android:text="Shop Owner"
+                    android:text="Your Products"
                     android:fontFamily="@font/sansation"
                     android:textColor="#000"
                     android:textSize="25dp" />

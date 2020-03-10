@@ -142,7 +142,7 @@
                 android:textColorHint="@color/white_text"
                 android:textSize="20sp" />
             <TextView
-                android:id="@+id/signup"
+                android:id="@+id/txt_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"

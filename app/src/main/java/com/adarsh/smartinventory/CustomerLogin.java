@@ -11,12 +11,14 @@ public class CustomerLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_login);
+        setContentView(R.layout.customerlogin_spare);
+
+
     }
 
     public void customerLogin(View view) {
-//        Intent i=new Intent(CustomerLogin.this,CustomerHome.class);
-//        startActivity(i);
+       // Intent i=new Intent(CustomerLogin.this,CustomerHome.class);
+     //   startActivity(i);
     }
 
     public void shopRegisterClick(View view) {
