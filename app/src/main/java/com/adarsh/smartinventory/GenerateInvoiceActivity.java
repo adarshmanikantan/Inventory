@@ -68,14 +68,7 @@ public class GenerateInvoiceActivity extends AppCompatActivity {
         taxes=sp.getString("key3",null);
        totalamountvalue=sp.getString("key4",null);
 
-//        productname.setText(pro_name);
-//        quantity.setText(String.valueOf(quantitynum));
-//        price.setText(String.valueOf(rate_value));
-//        subtotal.setText(String.valueOf(subtotal_value));
-//        discountpercnt.setText(discountpercentage);
-//        discountrate.setText(String.valueOf(discountrate));
-//        gst.setText(taxes);
-//        totalamount.setText(totalamountvalue);
+
         productname.setText(appPreferences.getData("pro_name"));
         quantity.setText(appPreferences.getData("quantitynum"));
         price.setText(appPreferences.getData("rate_value"));
@@ -124,8 +117,6 @@ public class GenerateInvoiceActivity extends AppCompatActivity {
             relativeLayout.draw(canvas);
             document.finishPage(page);
             String targetPdf = "/sdcard/pdffromlayout.pdf";
-
-
             File filePath;
             filePath = new File(targetPdf);
             try {
@@ -144,7 +135,7 @@ public class GenerateInvoiceActivity extends AppCompatActivity {
 
         }catch (Exception e){
 
-             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+            // Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -163,5 +154,10 @@ public class GenerateInvoiceActivity extends AppCompatActivity {
                 Toast.makeText(GenerateInvoiceActivity.this, "No Application available to view pdf", Toast.LENGTH_LONG).show();
             }
         }
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),InvoiceGeneration.class);
+        startActivity(intent);
     }
 }

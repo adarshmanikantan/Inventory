@@ -6,37 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".StaffHome"
     android:orientation="vertical"
-    android:weightSum="2">
+    android:weightSum="3"
+    android:elevation="50dp"
+    android:background="#E4E1E1">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
+    android:layout_margin="25dp"
+    android:background="@drawable/optionsbg"
     android:onClick="customersClick"
-    android:background="@drawable/redbg"
     android:gravity="center">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Customers"
-        android:textColor="#fff"
+        android:textColor="#C96515"
         android:onClick="viewproductsClick"
         android:textSize="30sp"
-        android:fontFamily="@font/sansation"/>
+        android:fontFamily="@font/chunkfive"/>
 </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_margin="25dp"
+        android:background="@drawable/optionsbg"
+        android:onClick="scanQrClick"
+        android:gravity="center">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="1"
-    android:gravity="center">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Products"
-        android:textColor="#7C0C0C"
-        android:textSize="30sp"
-        android:fontFamily="@font/sansation"/>
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan QR"
+            android:textColor="#3F51B5"
+            android:textSize="30sp"
+            android:fontFamily="@font/chunkfive"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_margin="25dp"
+        android:elevation="50dp"
+        android:background="@drawable/optionsbg"
+        android:onClick="invoiceClick"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invoices"
+            android:textColor="#009688"
+            android:textSize="30sp"
+            android:fontFamily="@font/chunkfive"/>
+    </LinearLayout>
 
 </LinearLayout>

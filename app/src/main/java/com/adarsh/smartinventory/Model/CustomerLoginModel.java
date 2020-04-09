@@ -6,7 +6,7 @@ public class CustomerLoginModel {
 
     /**
      * status : Success
-     * details : {"results":[{"id":5,"employee_id":2,"Name":"sassssx","Email":"sdscsx","Phone":46,"Customer_code":"3r4","Password":"fd"}]}
+     * details : {"results":[{"id":8,"employee_id":16,"Name":"sura","Email":"sura@gmail.com","Phone":123,"Customer_code":"sura","Password":"1234"}]}
      */
 
     private String status;
@@ -41,13 +41,13 @@ public class CustomerLoginModel {
 
         public static class ResultsBean {
             /**
-             * id : 5
-             * employee_id : 2
-             * Name : sassssx
-             * Email : sdscsx
-             * Phone : 46
-             * Customer_code : 3r4
-             * Password : fd
+             * id : 8
+             * employee_id : 16
+             * Name : sura
+             * Email : sura@gmail.com
+             * Phone : 123
+             * Customer_code : sura
+             * Password : 1234
              */
 
             private int id;

@@ -37,55 +37,72 @@ public class AddStaff extends AppCompatActivity {
         email=findViewById(R.id.add_empemail);
         contact=findViewById(R.id.add_empcontact);
         password=findViewById(R.id.add_emppasswd);
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("pref", MODE_PRIVATE);
+        shop_id=sharedPreferences.getInt("key1",0);
 
+        Toast.makeText(this, String.valueOf(shop_id), Toast.LENGTH_SHORT).show();
     }
 
     public void addStaffbtnClick(View view) {
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("pref", MODE_PRIVATE);
-      shop_id=sharedPreferences.getInt("key1",0);
 
-        Toast.makeText(this, String.valueOf(shop_id), Toast.LENGTH_SHORT).show();
-        final Api api = Api_client.SmartInventory().create(Api.class);
-        AddEmployeeRequest addEmployeeRequest = new AddEmployeeRequest();
-
-
-        addEmployeeRequest.setShopowner_id(shop_id);
-        addEmployeeRequest.setName(name.getText().toString());
-        addEmployeeRequest.setContact(Integer.parseInt(contact.getText().toString()));
-        addEmployeeRequest.setEmail(email.getText().toString());
-        addEmployeeRequest.setEmployee_Code(empcode.getText().toString());
-        addEmployeeRequest.setPassword(password.getText().toString());
-
-        Gson gson = new Gson();
-        Json = gson.toJson(addEmployeeRequest).trim();
-        try {
-            requestBody = RequestBody.create(MediaType.parse("application/json"), Json.getBytes("UTF-8"));
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(AddStaff.this, "" + e, Toast.LENGTH_SHORT).show();
+        if (name.getText().toString().equals("")) {
+          name.setError("Enter name");
         }
+        else if (empcode.getText().toString().equals("")) {
+          empcode.setError("Enter Employee Code");
+        }
+        else if (email.getText().toString().equals("")) {
+          email.setError("Enter Email");
+        }
+        else if (contact.getText().toString().equals("")) {
+           contact.setError("Enter contact number");
+        }
+        else if (password.getText().toString().equals("")) {
+           password.setError("Enter Password");
+        } else {
+            final Api api = Api_client.SmartInventory().create(Api.class);
+            AddEmployeeRequest addEmployeeRequest = new AddEmployeeRequest();
 
-        api.ADD_EMPLOYEE_RESPONSE_CALL(requestBody).enqueue(new Callback<AddEmployeeResponse>() {
-            @Override
-            public void onResponse(Call<AddEmployeeResponse> call, Response<AddEmployeeResponse> response) {
-                AddEmployeeResponse addEmployeeResponse = response.body();
-                if (addEmployeeResponse == null) {
-                    Toast.makeText(AddStaff.this, "failed"+shop_id, Toast.LENGTH_SHORT).show();
-                } else {
-                    if (addEmployeeResponse.getStatus().equalsIgnoreCase("success")) {
-                        Toast.makeText(AddStaff.this, "Success", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(AddStaff.this, ViewStaffs.class);
-                        startActivity(i);
+
+            addEmployeeRequest.setShopowner_id(shop_id);
+            addEmployeeRequest.setName(name.getText().toString());
+            addEmployeeRequest.setContact(Integer.parseInt(contact.getText().toString()));
+            addEmployeeRequest.setEmail(email.getText().toString());
+            addEmployeeRequest.setEmployee_Code(empcode.getText().toString());
+            addEmployeeRequest.setPassword(password.getText().toString());
+
+            Gson gson = new Gson();
+            Json = gson.toJson(addEmployeeRequest).trim();
+            try {
+                requestBody = RequestBody.create(MediaType.parse("application/json"), Json.getBytes("UTF-8"));
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(AddStaff.this, "" + e, Toast.LENGTH_SHORT).show();
+            }
+
+            api.ADD_EMPLOYEE_RESPONSE_CALL(requestBody).enqueue(new Callback<AddEmployeeResponse>() {
+                @Override
+                public void onResponse(Call<AddEmployeeResponse> call, Response<AddEmployeeResponse> response) {
+                    AddEmployeeResponse addEmployeeResponse = response.body();
+                    if (addEmployeeResponse == null) {
+                        Toast.makeText(AddStaff.this, "failed" + shop_id, Toast.LENGTH_SHORT).show();
+                    } else {
+                        if (addEmployeeResponse.getStatus().equalsIgnoreCase("success")) {
+                            Toast.makeText(AddStaff.this, "Success", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(AddStaff.this, ViewStaffs.class);
+                            startActivity(i);
+
+                        }
+
                     }
-
                 }
-            }
 
-            @Override
-            public void onFailure(Call<AddEmployeeResponse> call, Throwable t) {
-                Toast.makeText(AddStaff.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<AddEmployeeResponse> call, Throwable t) {
+                    Toast.makeText(AddStaff.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
 
+        }
     }
 }

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/greybg"
+    android:background="#fff"
     android:orientation="vertical">
     <ImageView
         android:id="@+id/parent_logo"
@@ -40,7 +40,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="Email :"
-        android:textColor="#fff"
+        android:textColor="#000F57"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="10dp"
         android:textSize="20sp" />
@@ -54,8 +54,8 @@
         android:background="@drawable/edittext_border_new"
         android:inputType="textEmailAddress"
         android:padding="10dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"
+        android:textColor="#000F57"
+        android:textColorHint="#000F57"
         android:textSize="20dp"
         android:layout_marginBottom="10dp" />
 
@@ -68,7 +68,7 @@
         android:layout_marginTop="10dp"
         android:text="Password:"
         android:layout_marginBottom="5dp"
-        android:textColor="#fff"
+        android:textColor="#000F57"
         android:textSize="20sp" />
 
     <EditText
@@ -80,8 +80,8 @@
         android:background="@drawable/edittext_border_new"
         android:inputType="textPassword"
         android:padding="10dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"
+        android:textColor="#000F57"
+        android:textColorHint="#000F57"
         android:textSize="20dp" />
     <TextView
         android:id="@+id/img_login"
@@ -116,7 +116,7 @@
         android:layout_gravity="center"
         android:onClick="shopRegister"
         android:text="New here ? Please Register!"
-        android:textColor="#fff"
+        android:textColor="#000F57"
         android:textSize="15dp" />
 
 </LinearLayout>

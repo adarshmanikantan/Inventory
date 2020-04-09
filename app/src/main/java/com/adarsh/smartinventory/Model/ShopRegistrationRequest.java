@@ -3,30 +3,26 @@ package com.adarsh.smartinventory.Model;
 public class ShopRegistrationRequest {
 
     /**
-     * user : {"id":2,"first_name":"","username":"anjali","email":"","password":"pbkdf2_sha256$180000$A0LS301fBWpu$mcqdm5vmgAXNboPEk4Y1SwJuoxmYiNFFqMDU4YszkC0="}
      * id : 1
-     * ShopName : ssss
-     * LiscenceNumber : ssss
-     * Contact : 23322
-     * District : eewew
-     * Address : wewe
+     * ShopName : asas
+     * username : asa
+     * LiscenceNumber : asas
+     * Contact : asa
+     * District : asas
+     * Address : sasa
+     * email : sasa
+     * password : asasa
      */
 
-    private UserBean user;
     private int id;
     private String ShopName;
+    private String username;
     private String LiscenceNumber;
-    private int Contact;
+    private String Contact;
     private String District;
     private String Address;
-
-    public UserBean getUser() {
-        return user;
-    }
-
-    public void setUser(UserBean user) {
-        this.user = user;
-    }
+    private String email;
+    private String password;
 
     public int getId() {
         return id;
@@ -44,6 +40,14 @@ public class ShopRegistrationRequest {
         this.ShopName = ShopName;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getLiscenceNumber() {
         return LiscenceNumber;
     }
@@ -52,11 +56,11 @@ public class ShopRegistrationRequest {
         this.LiscenceNumber = LiscenceNumber;
     }
 
-    public int getContact() {
+    public String getContact() {
         return Contact;
     }
 
-    public void setContact(int Contact) {
+    public void setContact(String Contact) {
         this.Contact = Contact;
     }
 
@@ -76,59 +80,19 @@ public class ShopRegistrationRequest {
         this.Address = Address;
     }
 
-    public static class UserBean {
-        /**
-         * id : 2
-         * first_name :
-         * username : anjali
-         * email :
-         * password : pbkdf2_sha256$180000$A0LS301fBWpu$mcqdm5vmgAXNboPEk4Y1SwJuoxmYiNFFqMDU4YszkC0=
-         */
+    public String getEmail() {
+        return email;
+    }
 
-        private int id;
-        private String first_name;
-        private String username;
-        private String email;
-        private String password;
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-        public int getId() {
-            return id;
-        }
+    public String getPassword() {
+        return password;
+    }
 
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getFirst_name() {
-            return first_name;
-        }
-
-        public void setFirst_name(String first_name) {
-            this.first_name = first_name;
-        }
-
-        public String getUsername() {
-            return username;
-        }
-
-        public void setUsername(String username) {
-            this.username = username;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
-        }
-
-        public String getPassword() {
-            return password;
-        }
-
-        public void setPassword(String password) {
-            this.password = password;
-        }
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

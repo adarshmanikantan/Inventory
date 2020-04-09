@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".AddCustomers"
     android:orientation="vertical"
-    android:background="@drawable/redbg">
+    android:background="#fff">
 
     <TextView
         style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -15,7 +15,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="Name:"
-        android:textColor="#fff"
+        android:textColor="#000F57"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="25dp"
         android:textSize="18sp" />
@@ -29,8 +29,8 @@
         android:background="@drawable/edittext_border_new"
         android:inputType="textPersonName"
         android:padding="10dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"
+        android:textColor="#000F57"
+        android:textColorHint="#000F57"
         android:textSize="20sp" />
     <TextView
         style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -39,7 +39,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="Email:"
-        android:textColor="#fff"
+        android:textColor="#000F57"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="25dp"
         android:textSize="18sp" />
@@ -53,8 +53,8 @@
         android:background="@drawable/edittext_border_new"
         android:inputType="textPersonName"
         android:padding="10dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"
+        android:textColor="#000F57"
+        android:textColorHint="#000F57"
         android:textSize="20sp" />
     <TextView
         style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -63,7 +63,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="Phone:"
-        android:textColor="#fff"
+        android:textColor="#000F57"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="25dp"
         android:textSize="18sp" />
@@ -75,10 +75,10 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/edittext_border_new"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         android:padding="10dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"
+        android:textColor="#000F57"
+        android:textColorHint="#000F57"
         android:textSize="20sp" />
     <TextView
         style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -87,7 +87,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="Create Customer Id:"
-        android:textColor="#fff"
+        android:textColor="#000F57"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="25dp"
         android:textSize="18sp" />
@@ -101,8 +101,8 @@
         android:background="@drawable/edittext_border_new"
         android:inputType="textPersonName"
         android:padding="10dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"
+        android:textColor="#000F57"
+        android:textColorHint="#000F57"
         android:textSize="20sp" />
     <TextView
         style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -111,7 +111,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:text="Password:"
-        android:textColor="#fff"
+        android:textColor="#000F57"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="25dp"
         android:textSize="18sp" />
@@ -125,8 +125,8 @@
         android:background="@drawable/edittext_border_new"
         android:inputType="textPassword"
         android:padding="10dp"
-        android:textColor="#fff"
-        android:textColorHint="#fff"
+        android:textColor="#000F57"
+        android:textColorHint="#000F57"
         android:textSize="20sp" />
     <TextView
         android:id="@+id/txt_register"
@@ -134,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:background="@drawable/button_press_new"
+        android:background="#C96515"
         android:gravity="center"
         android:onClick="addnewCustomerClick"
         android:padding="10dp"

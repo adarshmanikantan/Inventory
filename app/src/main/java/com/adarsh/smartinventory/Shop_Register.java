@@ -43,55 +43,77 @@ public class Shop_Register extends AppCompatActivity {
     }
 
     public void signupClick(View view) {
-        final Api api = Api_client.SmartInventory().create(Api.class);
-        ShopRegistrationRequest shopRegistrationRequest = new ShopRegistrationRequest();
-        ShopRegistrationRequest.UserBean userBean = new ShopRegistrationRequest.UserBean();
-        userBean.setUsername(ownername.getText().toString());
-        userBean.setFirst_name(ownername.getText().toString());
-        userBean.setEmail(email.getText().toString());
-        userBean.setPassword(password.getText().toString());
-        shopRegistrationRequest.setUser(userBean);
+        if (shopname.getText().toString().equals("")) {
+         shopname.setError("Enter shop name");
+        } else if (ownername.getText().toString().equals("")) {
+            ownername.setError("Enter owner name");
+        } else if (email.getText().toString().equals("")) {
+            email.setError("Enter email");
 
-       shopRegistrationRequest.setShopName(shopname.getText().toString());
-       shopRegistrationRequest.setLiscenceNumber(licence.getText().toString());
-       shopRegistrationRequest.setContact(Integer.parseInt(phone.getText().toString()));
-       shopRegistrationRequest.setDistrict(district.getText().toString());
-       shopRegistrationRequest.setAddress(address.getText().toString());
+        } else if (phone.getText().toString().equals("")) {
+            phone.setError("Enter phone number");
 
+        } else if (licence.getText().toString().equals("")) {
+            licence.setError("Enter license number");
 
-        Gson gson = new Gson();
-        Json = gson.toJson(shopRegistrationRequest).trim();
-        try {
-            requestBody = RequestBody.create(MediaType.parse("application/json"), Json.getBytes("UTF-8"));
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(Shop_Register.this, "" + e, Toast.LENGTH_SHORT).show();
         }
+        else if (address.getText().toString().equals("")) {
+            address.setError("Enter address");
 
-        api.SHOP_REG_RESPONSE_CALL(requestBody).enqueue(new Callback<ShopRegResponse>() {
-            @Override
-            public void onResponse(Call<ShopRegResponse> call, Response<ShopRegResponse> response) {
-                ShopRegResponse shopRegResponse=response.body();
-              if(shopRegResponse.getStatus().equalsIgnoreCase("success"))
-              {
-                  Toast.makeText(Shop_Register.this, shopRegResponse.getStatus(), Toast.LENGTH_SHORT).show();
-                  Intent i=new Intent(Shop_Register.this,Shop_Login.class);
-                  startActivity(i);
-              }
-              else if(shopRegResponse.getStatus()==null)
-              {
-                  Toast.makeText(Shop_Register.this, "failed", Toast.LENGTH_SHORT).show();
-              }
-              else
-              {
-                  Toast.makeText(Shop_Register.this, "Failed", Toast.LENGTH_SHORT).show();
-              }
+        } else if (district.getText().toString().equals("")) {
+            district.setError("Enter district");
+
+        }else if (password.getText().toString().equals("")) {
+            password.setError("Enter password");
+
+        } else {
+            final Api api = Api_client.SmartInventory().create(Api.class);
+            ShopRegistrationRequest shopRegistrationRequest = new ShopRegistrationRequest();
+            shopRegistrationRequest.setUsername(ownername.getText().toString());
+            shopRegistrationRequest.setEmail(email.getText().toString());
+            shopRegistrationRequest.setPassword(password.getText().toString());
+
+
+            shopRegistrationRequest.setShopName(shopname.getText().toString());
+            shopRegistrationRequest.setLiscenceNumber(licence.getText().toString());
+            shopRegistrationRequest.setContact(phone.getText().toString());
+            shopRegistrationRequest.setDistrict(district.getText().toString());
+            shopRegistrationRequest.setAddress(address.getText().toString());
+
+
+            Gson gson = new Gson();
+            Json = gson.toJson(shopRegistrationRequest).trim();
+            try {
+                requestBody = RequestBody.create(MediaType.parse("application/json"), Json.getBytes("UTF-8"));
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(Shop_Register.this, "" + e, Toast.LENGTH_SHORT).show();
             }
 
-            @Override
-            public void onFailure(Call<ShopRegResponse> call, Throwable t) {
-                Toast.makeText(Shop_Register.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+            api.SHOP_REG_RESPONSE_CALL(requestBody).enqueue(new Callback<ShopRegResponse>() {
+                @Override
+                public void onResponse(Call<ShopRegResponse> call, Response<ShopRegResponse> response) {
+                    ShopRegResponse shopRegResponse = response.body();
+                    if (shopRegResponse.getStatus().equalsIgnoreCase("success")) {
+                        Toast.makeText(Shop_Register.this, shopRegResponse.getStatus(), Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(Shop_Register.this, Shop_Login.class);
+                        startActivity(i);
+                    } else if (shopRegResponse.getStatus() == null) {
+                        Toast.makeText(Shop_Register.this, "failed", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(Shop_Register.this, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ShopRegResponse> call, Throwable t) {
+                    Toast.makeText(Shop_Register.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+    public void loginActivityClick(View view) {
+        Intent intent=new Intent(Shop_Register.this,Shop_Login.class);
+        startActivity(intent);
     }
 }

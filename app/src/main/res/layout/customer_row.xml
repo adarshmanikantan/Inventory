@@ -4,24 +4,27 @@
     android:layout_height="wrap_content"
     >
     <LinearLayout
+        android:id="@+id/customer_layout"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/redbg"
+        android:background="@drawable/customer_bg"
         android:layout_margin="20dp"
+        android:transitionName="customerTransition"
         android:gravity="center"
+        android:elevation="50dp"
         android:orientation="vertical">
     <TextView
         android:id="@+id/customer_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:layout_gravity="center_horizontal"
         android:textSize="25sp"/>
     <TextView
         android:id="@+id/customer_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 </LinearLayout>

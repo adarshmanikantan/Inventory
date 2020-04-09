@@ -7,55 +7,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:theme="@style/Theme.Shrine"
   >
    <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
         android:id="@+id/etqr"
+       android:gravity="top"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="5dp"
-        android:hint="Enter String" />
-
+        android:hint="Enter Product Details" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select a Theme"
+        android:textColor="#563686"
+        android:textSize="25sp"
+        android:fontFamily="@font/chunkfive"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:elevation="25dp"
+        android:layout_marginTop="20dp">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/blue"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="#010A38"/>
-        <Button
+            android:backgroundTint="#010A38"
+            android:layout_weight="1"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/red"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="#7E0000"/>
-        <Button
+            android:layout_weight="1"
+            android:backgroundTint="#7E0000"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/green"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="#00332B"/>
-        <Button
+            android:layout_weight="1"
+            android:backgroundTint="#00332B"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/pink"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="#C40135"/>
-        <Button
+            android:layout_weight="1"
+            android:backgroundTint="#C40135"/>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/violet"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="#3D0046"/>
-        <Button
-            android:id="@+id/brown"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#661900"/>
-        <Button
+            android:layout_weight="1"
+            android:backgroundTint="#3D0046"/>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/yellow"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="#695200"/>
+            android:layout_weight="1"
+            android:backgroundTint="#695200"/>
     </LinearLayout>
 
 

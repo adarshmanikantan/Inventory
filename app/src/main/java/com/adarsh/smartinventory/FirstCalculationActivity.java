@@ -14,9 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class FirstCalculationActivity extends AppCompatActivity {
-
-    EditText customer_name, product_name, quantity, rate;
-    TextView subtotal;
+    TextView customer_name;
+    EditText  product_name, quantity, rate;
     int quantitynum;
     float rate_value, subtotal_value;
 
@@ -121,8 +120,13 @@ public class FirstCalculationActivity extends AppCompatActivity {
             product_name = findViewById(R.id.productname);
             quantity = findViewById(R.id.quantityedt);
             rate = findViewById(R.id.rateedt);
-            subtotal = findViewById(R.id.subtotaltextview);
         }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),ViewCustomers.class);
+        startActivity(intent);
     }
+}
 
 

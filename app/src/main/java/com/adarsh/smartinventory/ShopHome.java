@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.adarsh.smartinventory.Model.StaffLogin;
+
 public class ShopHome extends AppCompatActivity {
 
     @Override
@@ -21,6 +23,11 @@ public class ShopHome extends AppCompatActivity {
 
     public void productsClick(View view) {
         Intent i=new Intent(ShopHome.this,ViewProducts_Shop.class);
+        startActivity(i);
+    }
+    @Override
+    public void onBackPressed() {
+        Intent i=new Intent(getApplicationContext(), Shop_Login.class);
         startActivity(i);
     }
 }

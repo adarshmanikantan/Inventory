@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.Shrine"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/redbg"
+    android:layout_margin="25dp"
+    android:background="@drawable/customer_bg"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,22 +20,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Discount"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="20sp"/>
+
         <EditText
             android:id="@+id/discountpercent"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:hint="%"
-            android:textColorHint="#fff"
+            android:inputType="number"
+            app:boxStrokeColor="#000"
+            android:textColorHint="#000"
             android:layout_margin="25dp"
             android:textSize="20sp"/>
+
         <TextView
             android:id="@+id/discountrupee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rupee"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:layout_margin="25dp"
             android:textSize="20sp"/>
     </LinearLayout>
@@ -42,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tax%"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:textSize="20sp"/>
         <Spinner
             android:id="@+id/taxpercentspinner"
@@ -57,7 +67,7 @@
             android:id="@+id/taxrupee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:layout_margin="25dp"
             android:textSize="20sp"/>
     </LinearLayout>
@@ -77,13 +87,13 @@
             android:id="@+id/totalamount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:layout_margin="25dp"
             android:text=""
             android:textSize="20sp" />
 
     </LinearLayout>
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
@@ -91,4 +101,5 @@
         android:background="#C4000000"
         android:textColor="#fff"
         android:layout_gravity="center"/>
+</LinearLayout>
 </LinearLayout>

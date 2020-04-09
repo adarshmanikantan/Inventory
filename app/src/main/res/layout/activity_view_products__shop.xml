@@ -4,19 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewStaffs">
+    tools:context=".ViewStaffs"
+    android:theme="@style/Theme.Shrine"
+    android:background="#CAC2C2">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/product_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_add_black_24dp"
         android:textColor="#fff"
         android:elevation="30sp"
+        android:backgroundTint="#000F57"
+        android:text="ADD PRODUCTS"
         android:layout_margin="30dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"

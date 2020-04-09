@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/greybg">
+    android:background="#fff"
+    >
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +21,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:text="Shop Name:"
-                android:textColor="#fff"
+                android:textColor="#000F57"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
                 android:textSize="18sp" />
@@ -34,8 +35,8 @@
                 android:background="@drawable/edittext_border_new"
                 android:inputType="textPersonName"
                 android:padding="10dp"
-                android:textColor="#fff"
-                android:textColorHint="#fff"
+                android:textColor="#000F57"
+                android:textColorHint="#000F57"
                 android:textSize="20sp" />
             <TextView
                 style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -46,7 +47,7 @@
                 android:layout_marginTop="5dp"
                 android:text="Owner Name:"
                 android:layout_marginBottom="5dp"
-                android:textColor="#fff"
+                android:textColor="#000F57"
                 android:textSize="18sp" />
 
             <EditText
@@ -56,10 +57,9 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/edittext_border_new"
-
                 android:padding="10dp"
-                android:textColor="#fff"
-                android:textColorHint="#fff"
+                android:textColor="#000F57"
+                android:textColorHint="#000F57"
                 android:textSize="20sp" />
             <TextView
                 style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -70,7 +70,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Email"
                 android:layout_marginBottom="5dp"
-                android:textColor="#fff"
+                android:textColor="#000F57"
                 android:textSize="18sp"/>
 
             <EditText
@@ -82,8 +82,8 @@
                 android:background="@drawable/edittext_border_new"
                 android:inputType="text"
                 android:padding="10dp"
-                android:textColor="#fff"
-                android:textColorHint="#fff"
+                android:textColor="#000F57"
+                android:textColorHint="#000F57"
                 android:textSize="20sp" />
             <TextView
                 style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -95,7 +95,7 @@
                 android:text="Phone"
                 android:layout_marginBottom="5dp"
                 android:textSize="18sp"
-                android:textColor="@color/white_text" />
+                android:textColor="#000F57" />
 
             <EditText
                 android:id="@+id/sreg_phone"
@@ -106,8 +106,8 @@
                 android:background="@drawable/edittext_border_new"
                 android:inputType="text"
                 android:padding="10dp"
-                android:textColor="@color/colorwhite"
-                android:textColorHint="#fff"
+                android:textColor="#000F57"
+                android:textColorHint="#000F57"
                 android:textSize="20sp" />
             <TextView
                 style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -118,7 +118,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Licence Number"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/white_text"
+                android:textColor="#000F57"
                 android:textSize="18sp"/>
 
             <EditText
@@ -130,8 +130,8 @@
                 android:background="@drawable/edittext_border_new"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
-                android:textColor="@color/colorwhite"
-                android:textColorHint="#fff"
+                android:textColor="#000F57"
+                android:textColorHint="#000F57"
                 android:textSize="20sp" />
             <TextView
                 style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -142,7 +142,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Address:"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/white_text"
+                android:textColor="#000F57"
                 android:textSize="18sp" />
 
             <EditText
@@ -152,11 +152,9 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/edittext_border_new"
-                android:inputType="phone"
-                android:maxLength="10"
                 android:padding="10dp"
-                android:textColor="@color/colorwhite"
-                android:textColorHint="@color/white_text"
+                android:textColor="#000F57"
+                android:textColorHint="#000F57"
                 android:textSize="20sp" />
             <TextView
                 style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -167,7 +165,7 @@
                 android:layout_marginTop="10dp"
                 android:text="District:"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/white_text"
+                android:textColor="#000F57"
                 android:textSize="18sp" />
 
             <EditText
@@ -178,8 +176,8 @@
                 android:layout_marginRight="30dp"
                 android:background="@drawable/edittext_border_new"
                 android:padding="10dp"
-                android:textColor="@color/colorwhite"
-                android:textColorHint="@color/white_text"
+                android:textColor="#000F57"
+                android:textColorHint="#000F57"
                 android:textSize="20sp" />
             <TextView
                 style="@android:style/TextAppearance.DeviceDefault.Medium"
@@ -190,7 +188,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Password:"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/white_text"
+                android:textColor="#000F57"
                 android:textSize="18sp" />
 
             <EditText
@@ -202,8 +200,8 @@
                 android:background="@drawable/edittext_border_new"
                 android:inputType="textPassword"
                 android:padding="10dp"
-                android:textColor="@color/colorwhite"
-                android:textColorHint="@color/white_text"
+                android:textColor="#000F57"
+                android:textColorHint="#000F57"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/txt_register"
@@ -228,13 +226,14 @@
                 android:textSize="15sp"
                 android:textColor="#4CAF50"
                 android:gravity="center"
+                android:onClick="loginActivityClick"
                 android:text="Already have an account? Please Login"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="15sp"
-                android:textColor="@color/white_text"
+                android:textColor="#000F57"
                 android:layout_marginBottom="10dp"
                 android:text="By signing up,you have to agree the Terms and Conditions and Privacy Policy of the app">
 

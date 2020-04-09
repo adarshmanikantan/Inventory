@@ -20,6 +20,7 @@ import com.adarsh.smartinventory.Model.InvoiceResponseModel;
 import com.adarsh.smartinventory.Model.ShopRegistrationRequest;
 import com.adarsh.smartinventory.Retro.Api;
 import com.adarsh.smartinventory.Retro.Api_client;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.harishpadmanabh.apppreferences.AppPreferences;
 
@@ -177,8 +178,8 @@ public class DiscountActivity extends AppCompatActivity {
     public void saveClick(View view) {
         Api api = Api_client.SmartInventory().create(Api.class);
         final InvoiceRequestModel invoiceRequestModel = new InvoiceRequestModel();
-        invoiceRequestModel.setEmployee_id(staffid);
 
+        invoiceRequestModel.setEmployee_id(staffid);
         invoiceRequestModel.setName(customer_name);
         invoiceRequestModel.setCustomer_code(cusid);
         invoiceRequestModel.setProduct_name(pro_name);
@@ -186,10 +187,10 @@ public class DiscountActivity extends AppCompatActivity {
         invoiceRequestModel.setAmount(String.valueOf(rate_value));
         invoiceRequestModel.setSub_total(String.valueOf(subtotal_value));
         invoiceRequestModel.setDiscount_percentage(String.valueOf(discountpercent_value));
-        invoiceRequestModel.setDiscount_rupees(String.valueOf(discountrupee));
+        invoiceRequestModel.setDiscount_rupees(String.valueOf(discountrupee.getText()));
         invoiceRequestModel.setTax(taxes.getSelectedItem().toString());
-        invoiceRequestModel.setTotal_amount(String.valueOf(totalamount_value));
-
+        invoiceRequestModel.setTotal_amount(total_amount.getText().toString());
+ //       Toast.makeText(this,+discountpercent_value+discountrupee+taxes.getSelectedItem().toString()+totalamount_value, Toast.LENGTH_SHORT).show();
 
         appPreferences.saveData("customer_name",customer_name);
         appPreferences.saveData("cusid",cusid);
@@ -200,7 +201,7 @@ public class DiscountActivity extends AppCompatActivity {
         appPreferences.saveData("discountpercent_value",String.valueOf(discountpercent_value));
         appPreferences.saveData("discountrupee",String.valueOf(discountrupee_value));
         appPreferences.saveData("taxes",taxes.getSelectedItem().toString());
-        appPreferences.saveData("totalamount_value",String.valueOf(totalamount_value));
+        appPreferences.saveData("totalamount_value",String.valueOf(total_amount.getText().toString()));
 
 
 
@@ -226,13 +227,13 @@ public class DiscountActivity extends AppCompatActivity {
                 {
                     Intent i=new Intent(getApplicationContext(),InvoiceGeneration.class);
                     startActivity(i);
-                   // Toast.makeText(DiscountActivity.this,invoiceResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
+                   Toast.makeText(DiscountActivity.this,invoiceResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     Intent i=new Intent(getApplicationContext(),InvoiceGeneration.class);
                     startActivity(i);
-                  //  Toast.makeText(DiscountActivity.this,invoiceResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DiscountActivity.this,invoiceResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -241,6 +242,11 @@ public class DiscountActivity extends AppCompatActivity {
                 Toast.makeText(DiscountActivity.this,t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),FirstCalculationActivity.class);
+        startActivity(intent);
     }
 }
 

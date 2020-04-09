@@ -4,16 +4,13 @@ import java.util.List;
 
 public class ShopLoginResponse{
 
+
     /**
      * status : Success
-     * user_id : 4
-     * name : kk
-     * details : {"results":[{"email":"kk@gmail.com","password":"kk"}]}
+     * details : {"results":[{"id":4,"ShopName":"q","username":"bh","LiscenceNumber":"26272","Contact":"26262","District":"ghh","Address":"gs","email":"q@gmail.com","password":"1234"}]}
      */
 
     private String status;
-    private int user_id;
-    private String name;
     private DetailsBean details;
 
     public String getStatus() {
@@ -22,22 +19,6 @@ public class ShopLoginResponse{
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public DetailsBean getDetails() {
@@ -61,12 +42,82 @@ public class ShopLoginResponse{
 
         public static class ResultsBean {
             /**
-             * email : kk@gmail.com
-             * password : kk
+             * id : 4
+             * ShopName : q
+             * username : bh
+             * LiscenceNumber : 26272
+             * Contact : 26262
+             * District : ghh
+             * Address : gs
+             * email : q@gmail.com
+             * password : 1234
              */
 
+            private int id;
+            private String ShopName;
+            private String username;
+            private String LiscenceNumber;
+            private String Contact;
+            private String District;
+            private String Address;
             private String email;
             private String password;
+
+            public int getId() {
+                return id;
+            }
+
+            public void setId(int id) {
+                this.id = id;
+            }
+
+            public String getShopName() {
+                return ShopName;
+            }
+
+            public void setShopName(String ShopName) {
+                this.ShopName = ShopName;
+            }
+
+            public String getUsername() {
+                return username;
+            }
+
+            public void setUsername(String username) {
+                this.username = username;
+            }
+
+            public String getLiscenceNumber() {
+                return LiscenceNumber;
+            }
+
+            public void setLiscenceNumber(String LiscenceNumber) {
+                this.LiscenceNumber = LiscenceNumber;
+            }
+
+            public String getContact() {
+                return Contact;
+            }
+
+            public void setContact(String Contact) {
+                this.Contact = Contact;
+            }
+
+            public String getDistrict() {
+                return District;
+            }
+
+            public void setDistrict(String District) {
+                this.District = District;
+            }
+
+            public String getAddress() {
+                return Address;
+            }
+
+            public void setAddress(String Address) {
+                this.Address = Address;
+            }
 
             public String getEmail() {
                 return email;

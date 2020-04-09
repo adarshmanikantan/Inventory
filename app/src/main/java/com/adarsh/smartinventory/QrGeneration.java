@@ -1,5 +1,8 @@
 package com.adarsh.smartinventory;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
@@ -13,6 +16,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.adarsh.smartinventory.Model.QrRequestModel;
+import com.adarsh.smartinventory.Model.QrResponseModel;
+import com.adarsh.smartinventory.Model.ShopRegResponse;
+import com.adarsh.smartinventory.Model.ShopRegistrationRequest;
+import com.adarsh.smartinventory.Retro.Api;
+import com.adarsh.smartinventory.Retro.Api_client;
+import com.google.android.material.button.MaterialButton;
+import com.google.gson.Gson;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -24,6 +35,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class QrGeneration extends AppCompatActivity implements View.OnClickListener {
 
     public final static int QRcodeWidth = 500 ;
@@ -32,7 +49,10 @@ public class QrGeneration extends AppCompatActivity implements View.OnClickListe
     private EditText etqr;
     private ImageView iv;
     private Button btn;
-
+    int staffid;
+    String product,cuscode;
+    String Json;
+    RequestBody requestBody=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,26 +60,70 @@ public class QrGeneration extends AppCompatActivity implements View.OnClickListe
 
         iv = (ImageView) findViewById(R.id.iv);
         etqr = (EditText) findViewById(R.id.etqr);
+        SharedPreferences sp=getApplicationContext().getSharedPreferences("pref",MODE_PRIVATE);
+        product=sp.getString("pro_name",null);
+        SharedPreferences sharedPreferences=getApplicationContext().getSharedPreferences("customer", Context.MODE_PRIVATE);
+        cuscode=sharedPreferences.getString("customer_code",null);
+        SharedPreferences sPreferences=getApplicationContext().getSharedPreferences("staffpref",MODE_PRIVATE);
+        staffid=sPreferences.getInt("staffid",0);
 
-
-        Button blue = (Button) findViewById(R.id.blue);
+        MaterialButton blue = findViewById(R.id.blue);
         blue.setOnClickListener(this); // calling onClick() method
-        Button red = (Button) findViewById(R.id.red);
+        MaterialButton red = findViewById(R.id.red);
         red.setOnClickListener(this);
-        Button green = (Button) findViewById(R.id.green);
+        MaterialButton green =  findViewById(R.id.green);
         green.setOnClickListener(this);
-        Button pink = (Button) findViewById(R.id.pink);
+        MaterialButton pink = findViewById(R.id.pink);
         pink.setOnClickListener(this); // calling onClick() method
-        Button violet = (Button) findViewById(R.id.violet);
+        MaterialButton violet = findViewById(R.id.violet);
         violet.setOnClickListener(this);
-        Button yellow = (Button) findViewById(R.id.yellow);
+        MaterialButton yellow =  findViewById(R.id.yellow);
         yellow.setOnClickListener(this);
-
-
-
-
     }
+    public void saveQrDetails(String details)
+    {
+        final Api api = Api_client.SmartInventory().create(Api.class);
+        QrRequestModel qrRequestModel = new QrRequestModel();
 
+        qrRequestModel.setCustomer_code(cuscode);
+        qrRequestModel.setEmployee_id(staffid);
+        qrRequestModel.setProduct_name(product);
+        qrRequestModel.setQrcode(details);
+
+        Gson gson = new Gson();
+        Json = gson.toJson(qrRequestModel).trim();
+        try {
+            requestBody = RequestBody.create(MediaType.parse("application/json"), Json.getBytes("UTF-8"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(QrGeneration.this, "" + e, Toast.LENGTH_SHORT).show();
+        }
+
+        api.QR_RESPONSE_MODEL_CALL(requestBody).enqueue(new Callback<QrResponseModel>() {
+            @Override
+            public void onResponse(Call<QrResponseModel> call, Response<QrResponseModel> response) {
+                QrResponseModel qrResponseModel=response.body();
+                if(qrResponseModel==null)
+                {
+                    Toast.makeText(QrGeneration.this, "failed", Toast.LENGTH_SHORT).show();
+                }
+                else if(qrResponseModel.getStatus().equalsIgnoreCase("success"))
+                {
+                    Toast.makeText(QrGeneration.this, qrResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
+
+                }
+                else
+                {
+                    Toast.makeText(QrGeneration.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<QrResponseModel> call, Throwable t) {
+                Toast.makeText(QrGeneration.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     public String saveImage(Bitmap myBitmap) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         myBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
@@ -139,6 +203,7 @@ public class QrGeneration extends AppCompatActivity implements View.OnClickListe
                         iv.setImageBitmap(bitmap);
                         String path = saveImage(bitmap);  //give read write permission
                         Toast.makeText(QrGeneration.this, "QRCode saved to -> "+path, Toast.LENGTH_SHORT).show();
+                        saveQrDetails(etqr.getText().toString());
                     } catch (WriterException e) {
                         e.printStackTrace();
                     }
@@ -157,6 +222,7 @@ public class QrGeneration extends AppCompatActivity implements View.OnClickListe
                         iv.setImageBitmap(bitmap);
                         String path = saveImage(bitmap);  //give read write permission
                         Toast.makeText(QrGeneration.this, "QRCode saved to -> "+path, Toast.LENGTH_SHORT).show();
+                        saveQrDetails(etqr.getText().toString());
                     } catch (WriterException e) {
                         e.printStackTrace();
                     }
@@ -175,6 +241,7 @@ public class QrGeneration extends AppCompatActivity implements View.OnClickListe
                         iv.setImageBitmap(bitmap);
                         String path = saveImage(bitmap);  //give read write permission
                         Toast.makeText(QrGeneration.this, "QRCode saved to -> "+path, Toast.LENGTH_SHORT).show();
+                        saveQrDetails(etqr.getText().toString());
                     } catch (WriterException e) {
                         e.printStackTrace();
                     }
@@ -192,6 +259,7 @@ public class QrGeneration extends AppCompatActivity implements View.OnClickListe
                         iv.setImageBitmap(bitmap);
                         String path = saveImage(bitmap);  //give read write permission
                         Toast.makeText(QrGeneration.this, "QRCode saved to -> "+path, Toast.LENGTH_SHORT).show();
+                        saveQrDetails(etqr.getText().toString());
                     } catch (WriterException e) {
                         e.printStackTrace();
                     }
@@ -210,6 +278,7 @@ public class QrGeneration extends AppCompatActivity implements View.OnClickListe
                         iv.setImageBitmap(bitmap);
                         String path = saveImage(bitmap);  //give read write permission
                         Toast.makeText(QrGeneration.this, "QRCode saved to -> "+path, Toast.LENGTH_SHORT).show();
+                        saveQrDetails(etqr.getText().toString());
                     } catch (WriterException e) {
                         e.printStackTrace();
                     }
@@ -228,6 +297,7 @@ public class QrGeneration extends AppCompatActivity implements View.OnClickListe
                         iv.setImageBitmap(bitmap);
                         String path = saveImage(bitmap);  //give read write permission
                         Toast.makeText(QrGeneration.this, "QRCode saved to -> "+path, Toast.LENGTH_SHORT).show();
+                        saveQrDetails(etqr.getText().toString());
                     } catch (WriterException e) {
                         e.printStackTrace();
                     }
@@ -236,5 +306,10 @@ public class QrGeneration extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),InvoiceGeneration.class);
+        startActivity(intent);
     }
 }

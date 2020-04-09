@@ -37,11 +37,12 @@ public class SalesExecutive_Login extends AppCompatActivity {
         api.STAFF_LOGIN_CALL(staffloginEmpcd.getText().toString(), staffloginPswd.getText().toString()).enqueue(new Callback<StaffLogin>() {
             @Override
             public void onResponse(Call<StaffLogin> call, Response<StaffLogin> response) {
-                if (response.body() == null) {
 
-                } else {
                     StaffLogin staffLoginResponse = response.body();
-                    if (staffLoginResponse.getStatus().equalsIgnoreCase("success")) {
+                if (staffLoginResponse == null) {
+                    Toast.makeText(SalesExecutive_Login.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
+                    else if (staffLoginResponse.getStatus().equalsIgnoreCase("success")) {
                         int staff_id = staffLoginResponse.getEmpdata().getResults().get(0).get(0).getId();
                         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("staffpref", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -51,18 +52,17 @@ public class SalesExecutive_Login extends AppCompatActivity {
                         Intent i = new Intent(getApplicationContext(), StaffHome.class);
                         startActivity(i);
 
-                    } else if (staffLoginResponse.getStatus() == null) {
-                        Toast.makeText(SalesExecutive_Login.this, "Failed", Toast.LENGTH_SHORT).show();
-                    } else {
+                    }
+                     else {
                         Toast.makeText(getApplicationContext(), staffLoginResponse.getStatus(), Toast.LENGTH_SHORT).show();
 
                     }
                 }
-            }
+
 
             @Override
             public void onFailure(Call<StaffLogin> call, Throwable t) {
-
+                Toast.makeText(SalesExecutive_Login.this,t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -73,6 +73,12 @@ public class SalesExecutive_Login extends AppCompatActivity {
         staffloginPswd = findViewById(R.id.stafflogin_pswd);
         imgLogin = findViewById(R.id.img_login);
         txtRegister = findViewById(R.id.txt_register);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i=new Intent(getApplicationContext(),AccountChooser.class);
+        startActivity(i);
     }
 }
 

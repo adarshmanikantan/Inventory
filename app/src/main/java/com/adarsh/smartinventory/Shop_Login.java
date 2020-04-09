@@ -45,9 +45,9 @@ public class Shop_Login extends AppCompatActivity {
                         Toast.makeText(Shop_Login.this, shopLoginResponse.getStatus(), Toast.LENGTH_SHORT).show();
                         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("pref", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putInt("key1",shopLoginResponse.getUser_id());
+                        editor.putInt("key1",shopLoginResponse.getDetails().getResults().get(0).getId());
                         editor.apply();
-                       Toast.makeText(Shop_Login.this, String.valueOf(shopLoginResponse.getUser_id()), Toast.LENGTH_SHORT).show();
+                       Toast.makeText(Shop_Login.this, String.valueOf(shopLoginResponse.getDetails().getResults().get(0).getId()), Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(Shop_Login.this, ShopHome.class);
                         startActivity(i);
                     } else if (shopLoginResponse.getStatus() == null) {
@@ -64,5 +64,11 @@ public class Shop_Login extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i=new Intent(getApplicationContext(),AccountChooser.class);
+        startActivity(i);
     }
 }

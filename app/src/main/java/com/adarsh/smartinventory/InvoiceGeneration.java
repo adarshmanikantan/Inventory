@@ -23,4 +23,9 @@ public class InvoiceGeneration extends AppCompatActivity {
         Intent i=new Intent(InvoiceGeneration.this,QrGeneration.class);
         startActivity(i);
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(getApplicationContext(),DiscountActivity.class);
+        startActivity(intent);
+    }
 }

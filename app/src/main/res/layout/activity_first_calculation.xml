@@ -1,48 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/redbg">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_gravity="center"
         android:layout_height="match_parent"
+       android:theme="@style/Theme.Shrine"
         tools:context=".FirstCalculationActivity">
 
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    android:transitionName="customerTransition"
+    android:background="@drawable/customer_bg">
         <TextView
-            android:id="@+id/txtviewinvoice"
+            android:id="@+id/custname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:textColor="#fff"
-            android:text="Inv No."/>
-        <EditText
-            android:id="@+id/edtinvoice"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/txtviewinvoice"
-            android:layout_alignBottom="@id/txtviewinvoice"/>
-        <EditText
-            android:id="@+id/custname"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:hint="Customer Name"
-            android:padding="10dp"
-            android:textColorHint="#fff"
-            android:textColor="#fff"
+            android:textColorHint="#000"
+            android:textColor="#000"
+            android:text="NAME"
+            android:layout_centerHorizontal="true"
+            android:textSize="25sp"
+            android:fontFamily="@font/sansation"
             android:layout_marginTop="60dp"
-            android:layout_below="@id/txtviewinvoice"
-            android:layout_centerHorizontal="true"/>
+            />
         <EditText
             android:id="@+id/productname"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:hint="Product/Service Name"
             android:padding="10dp"
-            android:textColor="#fff"
-            android:textColorHint="#fff"
+            android:textColor="#000"
+            android:textColorHint="#000"
             android:layout_margin="20dp"
             android:layout_below="@id/custname"
             android:layout_centerHorizontal="true"/>
@@ -58,52 +49,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textColorHint="#fff"
-                android:textColor="#fff"
+                android:inputType="number"
+                android:background="@drawable/edittext_border_new"
+                android:textColorHint="#000"
+                android:textColor="#000"
                 android:hint="Quantity"
                 />
             <EditText
                 android:id="@+id/rateedt"
-                android:textColor="#fff"
-                android:textColorHint="#fff"
+                android:textColor="#000"
+                android:textColorHint="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="false"
+                android:inputType="number"
                 android:hint="Rate(Price/Unit)"
+                android:background="@drawable/edittext_border_new"
                 android:padding="10dp"
                 android:layout_marginLeft="10dp"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/linearlayout"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subtotal"
-                    android:textColor="#fff"
-                    android:textSize="20sp"/>
-                <TextView
-                    android:id="@+id/subtotaltextview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="25dp"
-                    android:textColor="#fff"
-                    android:textSize="20sp"/>
 
-            </LinearLayout>
-            <Button
+
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Next"
+                android:layout_below="@id/linearlayout"
                 android:onClick="nextClick"
+                android:layout_alignParentRight="true"
+                android:layout_margin="20dp"
                 android:layout_gravity="right"/>
-        </LinearLayout>
     </RelativeLayout>
-</ScrollView>
+</RelativeLayout>

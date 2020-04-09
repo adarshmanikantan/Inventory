@@ -46,48 +46,75 @@ public class AddCustomers extends AppCompatActivity {
     }
 
     public void addnewCustomerClick(View view) {
-        final Api api = Api_client.SmartInventory().create(Api.class);
-        AddCustomersRequestModel addCustomersRequestModel = new AddCustomersRequestModel();
-        addCustomersRequestModel.setCustomer_code(cusid.getText().toString());
-        addCustomersRequestModel.setEmail(email.getText().toString());
-        addCustomersRequestModel.setEmployee_id(emp_id);
-        addCustomersRequestModel.setName(name.getText().toString());
-        addCustomersRequestModel.setPhone(Integer.parseInt(phone.getText().toString()));
-        addCustomersRequestModel.setPassword(pswd.getText().toString());
-        Gson gson = new Gson();
-        Json = gson.toJson(addCustomersRequestModel).trim();
-        try {
-            requestBody = RequestBody.create(MediaType.parse("application/json"), Json.getBytes("UTF-8"));
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(AddCustomers.this, "" + e, Toast.LENGTH_SHORT).show();
+        if(name.getText().toString().equals(""))
+        {
+          name.setError("Enter Name");
         }
+        else if(email.getText().toString().equals(""))
+        {
+            email.setError("Enter Email");
 
-        api.ADD_CUSTOMER_RESPONSE_MODEL_CALL(requestBody).enqueue(new Callback<AddCustomerResponseModel>() {
-            @Override
-            public void onResponse(Call<AddCustomerResponseModel> call, Response<AddCustomerResponseModel> response) {
-                AddCustomerResponseModel addCustomerResponseModel=response.body();
-                if(addCustomerResponseModel.getStatus().equalsIgnoreCase("success"))
-                {
-                    Toast.makeText(AddCustomers.this,addCustomerResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
-                    Intent i=new Intent(getApplicationContext(),ViewCustomers.class);
-                    startActivity(i);
-                }
-                else
-                {
-                    Toast.makeText(AddCustomers.this,addCustomerResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
+        }
+        else if(phone.getText().toString().equals(""))
+        {
+            phone.setError("Enter Phone Number");
 
-                }
+        }
+        else if(cusid.getText().toString().equals(""))
+        {
+            name.setError("Enter Customer Id");
+
+        }
+        else if(pswd.getText().toString().equals(""))
+        {
+            name.setError("Enter Password");
+
+        }
+        else {
+            final Api api = Api_client.SmartInventory().create(Api.class);
+            AddCustomersRequestModel addCustomersRequestModel = new AddCustomersRequestModel();
+            addCustomersRequestModel.setCustomer_code(cusid.getText().toString());
+            addCustomersRequestModel.setEmail(email.getText().toString());
+            addCustomersRequestModel.setEmployee_id(emp_id);
+            addCustomersRequestModel.setName(name.getText().toString());
+            addCustomersRequestModel.setPhone(Integer.parseInt(phone.getText().toString()));
+            addCustomersRequestModel.setPassword(pswd.getText().toString());
+            Gson gson = new Gson();
+            Json = gson.toJson(addCustomersRequestModel).trim();
+            try {
+                requestBody = RequestBody.create(MediaType.parse("application/json"), Json.getBytes("UTF-8"));
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(AddCustomers.this, "" + e, Toast.LENGTH_SHORT).show();
             }
 
-            @Override
-            public void onFailure(Call<AddCustomerResponseModel> call, Throwable t) {
-                Toast.makeText(AddCustomers.this,t.getMessage(), Toast.LENGTH_SHORT).show();
+            api.ADD_CUSTOMER_RESPONSE_MODEL_CALL(requestBody).enqueue(new Callback<AddCustomerResponseModel>() {
+                @Override
+                public void onResponse(Call<AddCustomerResponseModel> call, Response<AddCustomerResponseModel> response) {
+                    AddCustomerResponseModel addCustomerResponseModel = response.body();
+                    if (addCustomerResponseModel.getStatus().equalsIgnoreCase("success")) {
+                        Toast.makeText(AddCustomers.this, addCustomerResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getApplicationContext(), ViewCustomers.class);
+                        startActivity(i);
+                    } else {
+                        Toast.makeText(AddCustomers.this, addCustomerResponseModel.getStatus(), Toast.LENGTH_SHORT).show();
 
-            }
-        });
+                    }
+                }
 
+                @Override
+                public void onFailure(Call<AddCustomerResponseModel> call, Throwable t) {
+                    Toast.makeText(AddCustomers.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 
+                }
+            });
+
+        }
+    }
+    @Override
+    public void onBackPressed() {
+        Intent i=new Intent(getApplicationContext(), ViewCustomers.class);
+        startActivity(i);
     }
 
 }

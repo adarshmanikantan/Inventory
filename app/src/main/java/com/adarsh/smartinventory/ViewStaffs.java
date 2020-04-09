@@ -19,4 +19,10 @@ public class ViewStaffs extends AppCompatActivity {
         Intent i=new Intent(ViewStaffs.this,AddStaff.class);
         startActivity(i);
     }
+    @Override
+    public void onBackPressed() {
+        Intent i=new Intent(ViewStaffs.this,ShopHome.class);
+        startActivity(i);
+
+    }
 }
