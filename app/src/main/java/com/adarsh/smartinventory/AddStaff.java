@@ -66,7 +66,7 @@ public class AddStaff extends AppCompatActivity {
 
             addEmployeeRequest.setShopowner_id(shop_id);
             addEmployeeRequest.setName(name.getText().toString());
-            addEmployeeRequest.setContact(Integer.parseInt(contact.getText().toString()));
+            addEmployeeRequest.setContact(contact.getText().toString());
             addEmployeeRequest.setEmail(email.getText().toString());
             addEmployeeRequest.setEmployee_Code(empcode.getText().toString());
             addEmployeeRequest.setPassword(password.getText().toString());
@@ -92,6 +92,10 @@ public class AddStaff extends AppCompatActivity {
                             Intent i = new Intent(AddStaff.this, ViewStaffs.class);
                             startActivity(i);
 
+                        }
+                        else
+                        {
+                            Toast.makeText(AddStaff.this, "Failed", Toast.LENGTH_SHORT).show();
                         }
 
                     }

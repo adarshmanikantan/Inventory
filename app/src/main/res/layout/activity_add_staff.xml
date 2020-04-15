@@ -98,7 +98,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/edittext_border_new"
-        android:inputType="phone"
+        android:inputType="number"
         android:padding="10dp"
         android:textColor="#000F57"
         android:textColorHint="#000F57"

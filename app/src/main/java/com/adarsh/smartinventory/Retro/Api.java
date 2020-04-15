@@ -10,6 +10,7 @@ import com.adarsh.smartinventory.Model.ShopLoginResponse;
 import com.adarsh.smartinventory.Model.ShopRegResponse;
 import com.adarsh.smartinventory.Model.StaffLogin;
 import com.adarsh.smartinventory.Model.ViewCustomerModel;
+import com.adarsh.smartinventory.Model.ViewEmployeeModel;
 import com.adarsh.smartinventory.Model.ViewInvoiceByCustomerModel;
 import com.adarsh.smartinventory.Model.ViewInvoiceByStaffModel;
 import com.adarsh.smartinventory.Model.ViewProductsModel;
@@ -54,6 +55,9 @@ public interface Api {
 
     @GET("shopowner/productdetails/?")
     Call<ViewProductsModel>VIEW_PRODUCTS_MODEL_CALL(@Query("shop_id")int shop_id);
+
+    @GET("shopowner/empdetails/?")
+    Call<ViewEmployeeModel>VIEW_EMPLOYEE_MODEL_CALL(@Query("shop_id")int shop_id);
 
     @GET("employee/custinvoice/?")
     Call<ViewInvoiceByCustomerModel>VIEW_INVOICE_BY_CUSTOMER_MODEL_CALL(@Query("customer_code")String cust_code);

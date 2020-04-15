@@ -15,7 +15,7 @@ public class AddCustomersRequestModel {
     private int employee_id;
     private String Name;
     private String Email;
-    private int Phone;
+    private String Phone;
     private String Customer_code;
     private String Password;
 
@@ -43,11 +43,11 @@ public class AddCustomersRequestModel {
         this.Email = Email;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return Phone;
     }
 
-    public void setPhone(int Phone) {
+    public void setPhone(String Phone) {
         this.Phone = Phone;
     }
 

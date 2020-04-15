@@ -71,7 +71,7 @@ public class CustomerLogin extends AppCompatActivity {
                       int employee_id=customerLoginModel.getDetails().getResults().get(0).getEmployee_id();
                       String name=customerLoginModel.getDetails().getResults().get(0).getName();
                       String email=customerLoginModel.getDetails().getResults().get(0).getEmail();
-                      int phone=customerLoginModel.getDetails().getResults().get(0).getPhone();
+                      String phone=customerLoginModel.getDetails().getResults().get(0).getPhone();
                       String customercode=customerLoginModel.getDetails().getResults().get(0).getCustomer_code();
                       String password=customerLoginModel.getDetails().getResults().get(0).getPassword();
                       SharedPreferences sharedPreferences=getApplicationContext().getSharedPreferences("customer",MODE_PRIVATE);

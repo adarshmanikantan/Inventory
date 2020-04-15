@@ -2,15 +2,15 @@ package com.adarsh.smartinventory.Model;
 
 import java.util.List;
 
-public class StaffLogin {
+public class ViewEmployeeModel {
 
     /**
      * status : Success
-     * empdata : {"results":[[{"id":15,"shopowner_id":4,"Name":"s","Email":"s@gmail.com","Employee_Code":"s","Contact":1234,"Password":"1234"}]]}
+     * employee : {"results":[{"id":3,"shopowner_id":1,"Name":"aax","Email":"zxzxz","Employee_Code":"zxzx","Contact":2434,"Password":"dsssd"},{"id":4,"shopowner_id":1,"Name":"ccsfffsd","Email":"cybsdcccer@gmail.com","Employee_Code":"1dd23","Contact":2344232,"Password":"233322"}]}
      */
 
     private String status;
-    private EmpdataBean empdata;
+    private EmployeeBean employee;
 
     public String getStatus() {
         return status;
@@ -20,34 +20,34 @@ public class StaffLogin {
         this.status = status;
     }
 
-    public EmpdataBean getEmpdata() {
-        return empdata;
+    public EmployeeBean getEmployee() {
+        return employee;
     }
 
-    public void setEmpdata(EmpdataBean empdata) {
-        this.empdata = empdata;
+    public void setEmployee(EmployeeBean employee) {
+        this.employee = employee;
     }
 
-    public static class EmpdataBean {
-        private List<List<ResultsBean>> results;
+    public static class EmployeeBean {
+        private List<ResultsBean> results;
 
-        public List<List<ResultsBean>> getResults() {
+        public List<ResultsBean> getResults() {
             return results;
         }
 
-        public void setResults(List<List<ResultsBean>> results) {
+        public void setResults(List<ResultsBean> results) {
             this.results = results;
         }
 
         public static class ResultsBean {
             /**
-             * id : 15
-             * shopowner_id : 4
-             * Name : s
-             * Email : s@gmail.com
-             * Employee_Code : s
-             * Contact : 1234
-             * Password : 1234
+             * id : 3
+             * shopowner_id : 1
+             * Name : aax
+             * Email : zxzxz
+             * Employee_Code : zxzx
+             * Contact : 2434
+             * Password : dsssd
              */
 
             private int id;

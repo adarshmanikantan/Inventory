@@ -7,7 +7,7 @@
     tools:context=".ViewStaffs"
     android:theme="@style/Theme.Shrine">
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/view_staff_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>

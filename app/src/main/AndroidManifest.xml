@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Shrine"
         android:usesCleartextTraffic="true">
-        <activity android:name=".QRActivity"></activity>
+        <activity android:name=".StaffActivity"></activity>
+        <activity android:name=".QRActivity" />
         <activity android:name=".ViewQrByCustomer" />
         <activity android:name=".ViewInvoiceByCustomer" />
         <activity android:name=".CustomerHome" />

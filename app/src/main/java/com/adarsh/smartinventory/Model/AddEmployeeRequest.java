@@ -16,7 +16,7 @@ public class AddEmployeeRequest {
     private String Name;
     private String Email;
     private String Employee_Code;
-    private int Contact;
+    private String Contact;
     private String Password;
 
     public int getShopowner_id() {
@@ -51,11 +51,11 @@ public class AddEmployeeRequest {
         this.Employee_Code = Employee_Code;
     }
 
-    public int getContact() {
+    public String getContact() {
         return Contact;
     }
 
-    public void setContact(int Contact) {
+    public void setContact(String Contact) {
         this.Contact = Contact;
     }
 

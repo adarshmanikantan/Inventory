@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductActivity"
+    >
+    <TextView
+        android:id="@+id/staff_name_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SOURAV"
+        android:textColor="#172985"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"/>
+    <TextView
+        android:id="@+id/staff_empcode_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SC1"
+        android:textColor="#172985"
+        android:layout_below="@id/staff_name_details"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/staff_email_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email : saurav.sics@gmail.com"
+        android:textColor="#172985"
+        android:layout_below="@id/staff_empcode_details"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"/>
+    <TextView
+        android:id="@+id/staff_phone_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="number : 9074937901"
+        android:textColor="#172985"
+        android:layout_below="@id/staff_email_details"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"/>
+</RelativeLayout>

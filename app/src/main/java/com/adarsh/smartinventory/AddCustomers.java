@@ -77,7 +77,7 @@ public class AddCustomers extends AppCompatActivity {
             addCustomersRequestModel.setEmail(email.getText().toString());
             addCustomersRequestModel.setEmployee_id(emp_id);
             addCustomersRequestModel.setName(name.getText().toString());
-            addCustomersRequestModel.setPhone(Integer.parseInt(phone.getText().toString()));
+            addCustomersRequestModel.setPhone(phone.getText().toString());
             addCustomersRequestModel.setPassword(pswd.getText().toString());
             Gson gson = new Gson();
             Json = gson.toJson(addCustomersRequestModel).trim();
